@@ -1,0 +1,524 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="SafeSphere - Modern Human Safety Awareness Blogging Platform. Read, Learn, and Stay Safe with expert guides, interactive safety tools, emergency helplines, and ML risk analyzer." />
+  <meta name="keywords" content="Safety Awareness, Personal Safety, Road Safety, Cyber Safety, Emergency Preparedness, Campus Safety, Disaster Safety, SafeSphere" />
+  <meta name="author" content="SafeSphere Team" />
+  <title>SafeSphere | Read. Learn. Stay Safe. — Human Safety Awareness Platform</title>
+
+  <!-- Google Fonts & Stylesheet -->
+  <link rel="stylesheet" href="style.css" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%232563eb'><path d='M12 2L3 7v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V7l-9-5z'/></svg>" />
+</head>
+<body>
+
+  <!-- ================= Site Header & Navigation ================= -->
+  <header class="site-header">
+    <div class="container navbar">
+      <a href="index.html" class="brand-logo" aria-label="SafeSphere Homepage">
+        <div class="brand-icon">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+          </svg>
+        </div>
+        <div>
+          SafeSphere
+          <span class="brand-tagline">Read. Learn. Stay Safe.</span>
+        </div>
+      </a>
+
+      <!-- Desktop & Mobile Navigation Links -->
+      <nav>
+        <ul class="nav-links" id="navLinks">
+          <li><a href="index.html" class="nav-link active">Home</a></li>
+          <li><a href="blogs.html" class="nav-link">Safety Blogs</a></li>
+          <li><a href="blogs.html#categories" class="nav-link">Categories</a></li>
+          <li><a href="tools.html" class="nav-link">Safety Tools</a></li>
+          <li><a href="emergency.html" class="nav-link">Emergency Help</a></li>
+          <li><a href="about.html" class="nav-link">About Us</a></li>
+        </ul>
+      </nav>
+
+      <!-- Action Items: Theme Toggle & SOS Quick Dial -->
+      <div class="nav-actions">
+        <!-- Auth Profile / Login Button Container -->
+        <div id="navbarAuthContainer"></div>
+
+        <button class="btn-icon" id="themeToggleBtn" aria-label="Toggle Light and Dark Mode" title="Toggle Theme">
+          <span id="themeIcon">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+            </svg>
+          </span>
+        </button>
+
+        <a href="emergency.html" class="sos-badge-btn" aria-label="Emergency Help & Helplines">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon>
+          </svg>
+          <span>EMERGENCY SOS</span>
+        </a>
+
+        <!-- Mobile Menu Toggle Button -->
+        <button class="btn-icon mobile-nav-toggle" id="mobileNavToggle" aria-label="Open Navigation Menu">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="3" y1="12" x2="21" y2="12"></line>
+            <line x1="3" y1="6" x2="21" y2="6"></line>
+            <line x1="3" y1="18" x2="21" y2="18"></line>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- ================= Hero Section ================= -->
+  <section class="hero-section">
+    <div class="hero-bg-glow"></div>
+    <div class="container hero-grid">
+      <div>
+        <div class="hero-badge">
+          <span>🛡️</span>
+          <span>HUMAN SAFETY & CRISIS AWARENESS INITIATIVE</span>
+        </div>
+        <h1 class="hero-title">
+          Your Safety. <br />
+          Your Awareness. <br />
+          <span class="gradient-text">Your Power.</span>
+        </h1>
+        <p class="hero-desc">
+          SafeSphere is an open-access safety blogging and preparedness platform. Empower yourself with practical defensive knowledge, cyber hygiene protocols, emergency toolkits, and an intelligent Machine Learning risk analyzer.
+        </p>
+        <div class="hero-actions">
+          <a href="blogs.html" class="btn btn-primary btn-lg" id="exploreBlogsHeroBtn">
+            Explore Safety Blogs
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="5" y1="12" x2="19" y2="12"></line>
+              <polyline points="12 5 19 12 12 19"></polyline>
+            </svg>
+          </a>
+          <a href="tools.html" class="btn btn-secondary btn-lg" id="exploreToolsHeroBtn">
+            🛠️ Interactive Safety Tools
+          </a>
+        </div>
+
+        <div class="hero-highlights">
+          <div>
+            <div class="hero-stat-num stat-count" data-target="15000">15,000+</div>
+            <div class="hero-stat-label">Community Readers</div>
+          </div>
+          <div>
+            <div class="hero-stat-num stat-count" data-target="45">45+</div>
+            <div class="hero-stat-label">Safety Action Guides</div>
+          </div>
+          <div>
+            <div class="hero-stat-num">100%</div>
+            <div class="hero-stat-label">Free & Privacy-First</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Hero Card: Dynamic Tip of the Day & Live Analyzer Preview -->
+      <div class="hero-card">
+        <div class="hero-card-header">
+          <div class="hero-card-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="10"></circle>
+              <line x1="12" y1="16" x2="12" y2="12"></line>
+              <line x1="12" y1="8" x2="12.01" y2="8"></line>
+            </svg>
+          </div>
+          <div>
+            <h3 style="font-size: 1.15rem;">Daily Safety Tip</h3>
+            <span style="font-size: 0.8rem; color: var(--text-muted);" id="dailyTipCategory">Personal Safety • SafeSphere</span>
+          </div>
+        </div>
+
+        <div class="live-tip-box">
+          <p class="tip-text" id="dailyTipText">
+            "Keep one earbud out or use ambient sound mode when walking alone outdoors at night to remain fully aware of approaching footsteps or vehicles."
+          </p>
+        </div>
+
+        <div class="flex-between" style="margin-bottom: 1.5rem;">
+          <button class="btn btn-secondary btn-sm" id="speakTipBtn" title="Read tip aloud with Text-to-Speech">
+            🔊 Listen to Tip
+          </button>
+          <button class="btn btn-secondary btn-sm" id="refreshTipBtn" title="Get a new safety tip">
+            🔄 New Tip
+          </button>
+        </div>
+
+        <!-- Quick Action Link to ML Analyzer -->
+        <div style="background: var(--bg-surface-elevated); border: 1px solid var(--border-color); border-radius: 12px; padding: 1.25rem;">
+          <div class="flex-between" style="margin-bottom: 0.5rem;">
+            <span style="font-weight: 700; font-size: 0.9rem; color: var(--primary);">🤖 AI/ML Safety Risk Analyzer</span>
+            <span class="badge badge-success">Live Demo</span>
+          </div>
+          <p style="font-size: 0.85rem; color: var(--text-secondary); margin-bottom: 0.75rem;">
+            Test your current situation and get instant educational risk classification and defensive protocols.
+          </p>
+          <a href="tools.html#risk-analyzer" class="btn btn-primary btn-sm" style="width: 100%;">
+            Try Safety Risk Analyzer →
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= Popular Blog Categories Grid ================= -->
+  <section class="section-padding" id="categories" style="background: var(--bg-subtle);">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-subtitle">Categorized Knowledge</span>
+        <h2 class="section-title">Explore Core Safety Domains</h2>
+        <p class="section-desc">
+          Structured, verified guidance designed to protect you in digital spaces, urban transit, academic environments, and natural crises.
+        </p>
+      </div>
+
+      <div class="categories-grid">
+        <!-- 1. Personal Safety -->
+        <a href="blogs.html?category=personal-safety" class="category-card" style="--category-color: #3b82f6; --category-bg: rgba(59, 130, 246, 0.12);">
+          <div>
+            <div class="category-icon-wrap">🛡️</div>
+            <h3 class="category-title">Personal Safety</h3>
+            <p class="category-desc">Solo travel precautions, situational awareness, self-defense basics, and de-escalation strategies.</p>
+          </div>
+          <div class="category-footer">
+            <span>3 Articles</span>
+            <span>Explore Category →</span>
+          </div>
+        </a>
+
+        <!-- 2. Road Safety -->
+        <a href="blogs.html?category=road-safety" class="category-card" style="--category-color: #f59e0b; --category-bg: rgba(245, 158, 11, 0.12);">
+          <div>
+            <div class="category-icon-wrap">🚗</div>
+            <h3 class="category-title">Road Safety</h3>
+            <p class="category-desc">Defensive driving techniques, pedestrian blind spots, certified helmets, and seatbelt physics.</p>
+          </div>
+          <div class="category-footer">
+            <span>2 Articles</span>
+            <span>Explore Category →</span>
+          </div>
+        </a>
+
+        <!-- 3. Cyber Safety -->
+        <a href="blogs.html?category=cyber-safety" class="category-card" style="--category-color: #8b5cf6; --category-bg: rgba(139, 92, 246, 0.12);">
+          <div>
+            <div class="category-icon-wrap">🔒</div>
+            <h3 class="category-title">Cyber Safety</h3>
+            <p class="category-desc">Anti-phishing detection, passphrase entropy, AI voice cloning scams, and social media doxxing defense.</p>
+          </div>
+          <div class="category-footer">
+            <span>3 Articles</span>
+            <span>Explore Category →</span>
+          </div>
+        </a>
+
+        <!-- 4. Emergency Preparedness -->
+        <a href="blogs.html?category=emergency-prep" class="category-card" style="--category-color: #ef4444; --category-bg: rgba(239, 68, 68, 0.12);">
+          <div>
+            <div class="category-icon-wrap">🎒</div>
+            <h3 class="category-title">Emergency Preparedness</h3>
+            <p class="category-desc">72-Hour survival Go-Bag blueprints, home blackout kits, and family evacuation protocols.</p>
+          </div>
+          <div class="category-footer">
+            <span>1 Article</span>
+            <span>Explore Category →</span>
+          </div>
+        </a>
+
+        <!-- 5. Campus Safety -->
+        <a href="blogs.html?category=campus-safety" class="category-card" style="--category-color: #10b981; --category-bg: rgba(16, 185, 129, 0.12);">
+          <div>
+            <div class="category-icon-wrap">🏫</div>
+            <h3 class="category-title">Campus & Hostel Safety</h3>
+            <p class="category-desc">Student safety protocols, late-night campus transit, hostel electrical fire checks, and reporting channels.</p>
+          </div>
+          <div class="category-footer">
+            <span>1 Article</span>
+            <span>Explore Category →</span>
+          </div>
+        </a>
+
+        <!-- 6. Disaster Safety -->
+        <a href="blogs.html?category=disaster-safety" class="category-card" style="--category-color: #06b6d4; --category-bg: rgba(6, 182, 212, 0.12);">
+          <div>
+            <div class="category-icon-wrap">🌋</div>
+            <h3 class="category-title">Disaster Safety</h3>
+            <p class="category-desc">Drop-Cover-Hold On earthquake drills, submerged car escapes, high-rise fires, and storm shelters.</p>
+          </div>
+          <div class="category-footer">
+            <span>2 Articles</span>
+            <span>Explore Category →</span>
+          </div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= Featured Safety Blogs Carousel/Grid ================= -->
+  <section class="section-padding">
+    <div class="container">
+      <div class="flex-between" style="margin-bottom: 2.5rem; flex-wrap: wrap; gap: 1rem;">
+        <div>
+          <span class="section-subtitle">Curated Articles</span>
+          <h2 class="section-title" style="margin-bottom: 0;">Featured Safety Blogs</h2>
+        </div>
+        <a href="blogs.html" class="btn btn-secondary">
+          View All Blogs (${SafeSphereData.blogs.length}) →
+        </a>
+      </div>
+
+      <div class="blogs-grid" id="featuredBlogsContainer">
+        <!-- Dynamically injected top 3 featured blogs from data.js -->
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= Interactive Toolkit Banner Preview ================= -->
+  <section class="section-padding" style="background: var(--bg-surface); border-top: 1px solid var(--border-color); border-bottom: 1px solid var(--border-color);">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-subtitle">Interactive Toolkit</span>
+        <h2 class="section-title">Hands-On Practical Safety Tools</h2>
+        <p class="section-desc">
+          Test your preparedness with simulated drills, interactive checklists, and educational security assessments.
+        </p>
+      </div>
+
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1.5rem;">
+        <div style="background: var(--bg-main); border: 1px solid var(--border-color); border-radius: var(--radius-lg); padding: 1.75rem; text-align: center;">
+          <div style="font-size: 2.5rem; margin-bottom: 1rem;">🤖</div>
+          <h3 style="font-size: 1.25rem; margin-bottom: 0.5rem;">ML Risk Analyzer</h3>
+          <p style="font-size: 0.9rem; margin-bottom: 1.25rem;">Type your real-time situation and get classified risk metrics and protocols.</p>
+          <a href="tools.html#risk-analyzer" class="btn btn-secondary btn-sm">Try Analyzer</a>
+        </div>
+
+        <div style="background: var(--bg-main); border: 1px solid var(--border-color); border-radius: var(--radius-lg); padding: 1.75rem; text-align: center;">
+          <div style="font-size: 2.5rem; margin-bottom: 1rem;">🔑</div>
+          <h3 style="font-size: 1.25rem; margin-bottom: 0.5rem;">Password Analyzer</h3>
+          <p style="font-size: 0.9rem; margin-bottom: 1.25rem;">Calculate cryptographic Shannon entropy and GPU brute-force crack times.</p>
+          <a href="tools.html#password-checker" class="btn btn-secondary btn-sm">Check Password</a>
+        </div>
+
+        <div style="background: var(--bg-main); border: 1px solid var(--border-color); border-radius: var(--radius-lg); padding: 1.75rem; text-align: center;">
+          <div style="font-size: 2.5rem; margin-bottom: 1rem;">🎯</div>
+          <h3 style="font-size: 1.25rem; margin-bottom: 0.5rem;">Phishing Simulator</h3>
+          <p style="font-size: 0.9rem; margin-bottom: 1.25rem;">Spot deceptive email domains, smishing hooks, and urgent red flags.</p>
+          <a href="tools.html#phishing-quiz" class="btn btn-secondary btn-sm">Play Simulator</a>
+        </div>
+
+        <div style="background: var(--bg-main); border: 1px solid var(--border-color); border-radius: var(--radius-lg); padding: 1.75rem; text-align: center;">
+          <div style="font-size: 2.5rem; margin-bottom: 1rem;">📋</div>
+          <h3 style="font-size: 1.25rem; margin-bottom: 0.5rem;">Survival Checklists</h3>
+          <p style="font-size: 0.9rem; margin-bottom: 1.25rem;">Interactive Go-Bag and personal habits checklists saved to your browser.</p>
+          <a href="tools.html#checklists" class="btn btn-secondary btn-sm">View Checklists</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= Emergency Help Alert Strip ================= -->
+  <section class="section-padding-sm" style="background: linear-gradient(135deg, #ef4444, #b91c1c); color: #ffffff;">
+    <div class="container flex-between" style="flex-wrap: wrap; gap: 1.5rem;">
+      <div style="display: flex; align-items: center; gap: 1.25rem;">
+        <div style="width: 54px; height: 54px; background: rgba(255,255,255,0.2); border-radius: 14px; display: flex; align-items: center; justify-content: center; font-size: 1.75rem;">
+          🚨
+        </div>
+        <div>
+          <h3 style="color: #ffffff; font-size: 1.4rem;">In an active emergency? Dial 112 / 911 immediately.</h3>
+          <p style="color: rgba(255,255,255,0.9); font-size: 0.95rem; margin: 0;">
+            Access verified police, ambulance, fire, women helpline, and cybercrime hotlines on our emergency hub.
+          </p>
+        </div>
+      </div>
+      <a href="emergency.html" class="btn btn-secondary" style="background: #ffffff; color: #b91c1c; font-weight: 700;">
+        Open Emergency Help Hub →
+      </a>
+    </div>
+  </section>
+
+  <!-- ================= Newsletter Subscription ================= -->
+  <section class="section-padding">
+    <div class="container container-narrow">
+      <div class="newsletter-card">
+        <h2>Stay Ahead with the Weekly Safety Brief</h2>
+        <p>
+          Join 15,000+ conscious citizens receiving bite-sized safety tips, scam alerts, and emergency preparedness advice straight to your inbox.
+        </p>
+        <form class="newsletter-form" id="homeNewsletterForm">
+          <input type="email" class="newsletter-input" placeholder="Enter your email address..." required />
+          <button type="submit" class="btn btn-primary" style="white-space: nowrap;">
+            Subscribe Free
+          </button>
+        </form>
+        <div style="font-size: 0.8rem; color: #94a3b8; margin-top: 1rem;">
+          🔒 Zero spam. We respect your digital privacy. Unsubscribe at any time.
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= Site Footer ================= -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <!-- Brand Summary -->
+        <div class="footer-col">
+          <a href="index.html" class="brand-logo" style="margin-bottom: 1rem;">
+            <div class="brand-icon">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+              </svg>
+            </div>
+            SafeSphere
+          </a>
+          <p style="font-size: 0.9rem; margin-bottom: 1.5rem;">
+            SafeSphere is an educational Human Safety Awareness Blogging Platform built with modern web technologies, accessible design, and community safety tools.
+          </p>
+          <div class="social-links">
+            <a href="#" class="btn-icon" aria-label="Twitter / X">𝕏</a>
+            <a href="#" class="btn-icon" aria-label="LinkedIn">in</a>
+            <a href="#" class="btn-icon" aria-label="GitHub">GH</a>
+          </div>
+        </div>
+
+        <!-- Quick Links -->
+        <div class="footer-col">
+          <h4>Navigation</h4>
+          <ul class="footer-links">
+            <li><a href="index.html" class="footer-link">Home</a></li>
+            <li><a href="blogs.html" class="footer-link">Safety Blogs</a></li>
+            <li><a href="tools.html" class="footer-link">Interactive Tools</a></li>
+            <li><a href="emergency.html" class="footer-link">Emergency Help</a></li>
+            <li><a href="about.html" class="footer-link">About SafeSphere</a></li>
+          </ul>
+        </div>
+
+        <!-- Categories -->
+        <div class="footer-col">
+          <h4>Safety Domains</h4>
+          <ul class="footer-links">
+            <li><a href="blogs.html?category=personal-safety" class="footer-link">Personal Safety</a></li>
+            <li><a href="blogs.html?category=road-safety" class="footer-link">Road Safety</a></li>
+            <li><a href="blogs.html?category=cyber-safety" class="footer-link">Cyber Hygiene</a></li>
+            <li><a href="blogs.html?category=emergency-prep" class="footer-link">Go-Bag Readiness</a></li>
+            <li><a href="blogs.html?category=disaster-safety" class="footer-link">Disaster Protocols</a></li>
+          </ul>
+        </div>
+
+        <!-- Emergency Helplines Quick Reference -->
+        <div class="footer-col">
+          <h4>Emergency Helplines</h4>
+          <p style="font-size: 0.85rem; margin-bottom: 0.75rem;">Keep these critical numbers memorized:</p>
+          <ul class="footer-links" style="font-weight: 600;">
+            <li style="color: var(--safety-red);">🚨 Universal Emergency: <strong>112 / 911</strong></li>
+            <li style="color: #2563eb;">👮 Police Control: <strong>100</strong></li>
+            <li style="color: #059669;">🚑 Medical Ambulance: <strong>108 / 102</strong></li>
+            <li style="color: #4f46e5;">💻 Cyber Crime Portal: <strong>1930</strong></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div>
+          © 2026 <strong>SafeSphere</strong>. Read. Learn. Stay Safe. All Rights Reserved.
+        </div>
+        <div style="display: flex; gap: 1.5rem;">
+          <a href="about.html#architecture" class="footer-link">Tech Stack & Viva Notes</a>
+          <a href="about.html#faq" class="footer-link">FAQs</a>
+          <a href="emergency.html" class="footer-link">Emergency SOS</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scroll To Top Floating Button -->
+  <button class="scroll-top-btn" id="scrollTopBtn" aria-label="Scroll back to top of page">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+      <polyline points="18 15 12 9 6 15"></polyline>
+    </svg>
+  </button>
+
+  <!-- Scripts -->
+  <script src="data.js"></script>
+  <script src="script.js"></script>
+  <script src="auth.js"></script>
+  <script src="blogs.js"></script>
+
+  <!-- Script to populate Homepage Featured Blogs -->
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const container = document.getElementById('featuredBlogsContainer');
+      if (container && window.SafeSphereData && window.SafeSphereData.blogs) {
+        // Take first 3 blogs
+        const featured = window.SafeSphereData.blogs.slice(0, 3);
+        const storedLikes = JSON.parse(localStorage.getItem('safesphere_likes') || '{}');
+        const storedBookmarks = JSON.parse(localStorage.getItem('safesphere_bookmarks') || '[]');
+
+        container.innerHTML = featured.map(blog => {
+          const isLiked = !!storedLikes[blog.id];
+          const isSaved = storedBookmarks.includes(blog.id);
+          const currentLikes = isLiked ? blog.likes + 1 : blog.likes;
+
+          return `
+            <article class="blog-card" data-id="${blog.id}">
+              <div class="blog-card-media">
+                <img src="${blog.image}" alt="${blog.title}" loading="lazy" />
+                <span class="blog-category-badge">${blog.category}</span>
+              </div>
+              <div class="blog-card-body">
+                <div class="blog-meta-top">
+                  <span>📅 ${blog.date}</span>
+                  <span>⏱️ ${blog.readTime}</span>
+                </div>
+                <h3 class="blog-card-title">${blog.title}</h3>
+                <p class="blog-card-desc">${blog.excerpt}</p>
+                <div class="blog-card-footer">
+                  <div class="blog-author">
+                    <img src="${blog.author.avatar}" alt="${blog.author.name}" class="blog-author-img" />
+                    <div>
+                      <div class="blog-author-name">${blog.author.name}</div>
+                      <div class="blog-author-role">${blog.author.role}</div>
+                    </div>
+                  </div>
+                  <div class="blog-card-actions">
+                    <button class="like-btn ${isLiked ? 'liked' : ''}" data-id="${blog.id}">
+                      <span>${isLiked ? '❤️' : '🤍'}</span>
+                      <span>${currentLikes}</span>
+                    </button>
+                    <button class="bookmark-btn ${isSaved ? 'saved' : ''}" data-id="${blog.id}">
+                      <span>${isSaved ? '🔖' : '📑'}</span>
+                    </button>
+                  </div>
+                </div>
+                <div style="margin-top: 1.25rem;">
+                  <button class="btn btn-primary btn-sm read-article-btn" data-id="${blog.id}" style="width: 100%;">
+                    Read Complete Article →
+                  </button>
+                </div>
+              </div>
+            </article>
+          `;
+        }).join('');
+
+        // Attach listeners to featured read buttons
+        container.querySelectorAll('.read-article-btn').forEach(btn => {
+          btn.addEventListener('click', () => {
+            const id = btn.getAttribute('data-id');
+            if (typeof openArticleModal === 'function') {
+              openArticleModal(id);
+            } else {
+              window.location.href = `blogs.html?id=${id}`;
+            }
+          });
+        });
+      }
+    });
+  </script>
+</body>
+</html>

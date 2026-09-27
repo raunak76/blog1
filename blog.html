@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="SafeSphere Article Reader - In-depth human safety analysis and survival procedures." />
+  <title>Article Reader | SafeSphere</title>
+
+  <!-- Google Fonts & Stylesheet -->
+  <link rel="stylesheet" href="style.css" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%232563eb'><path d='M12 2L3 7v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V7l-9-5z'/></svg>" />
+</head>
+<body>
+
+  <!-- ================= Site Header & Navigation ================= -->
+  <header class="site-header">
+    <div class="container navbar">
+      <a href="index.html" class="brand-logo" aria-label="SafeSphere Homepage">
+        <div class="brand-icon">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+          </svg>
+        </div>
+        <div>
+          SafeSphere
+          <span class="brand-tagline">Read. Learn. Stay Safe.</span>
+        </div>
+      </a>
+
+      <nav>
+        <ul class="nav-links" id="navLinks">
+          <li><a href="index.html" class="nav-link">Home</a></li>
+          <li><a href="blogs.html" class="nav-link active">Safety Blogs</a></li>
+          <li><a href="tools.html" class="nav-link">Safety Tools</a></li>
+          <li><a href="emergency.html" class="nav-link">Emergency Help</a></li>
+          <li><a href="about.html" class="nav-link">About Us</a></li>
+        </ul>
+      </nav>
+
+      <div class="nav-actions">
+        <!-- Auth Profile / Login Container -->
+        <div id="navbarAuthContainer"></div>
+
+        <button class="btn-icon" id="themeToggleBtn" aria-label="Toggle Theme">
+          <span id="themeIcon">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+            </svg>
+          </span>
+        </button>
+
+        <a href="emergency.html" class="sos-badge-btn" aria-label="Emergency Help">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon>
+          </svg>
+          <span>EMERGENCY SOS</span>
+        </a>
+
+        <button class="btn-icon mobile-nav-toggle" id="mobileNavToggle" aria-label="Open Menu">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="3" y1="12" x2="21" y2="12"></line>
+            <line x1="3" y1="6" x2="21" y2="6"></line>
+            <line x1="3" y1="18" x2="21" y2="18"></line>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- ================= Article Reader Content ================= -->
+  <main class="section-padding">
+    <div class="container container-narrow" id="articleReaderContainer">
+      <!-- Injected by inline script based on URL parameter ?id=xxx -->
+    </div>
+  </main>
+
+  <!-- ================= Site Footer ================= -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-bottom">
+        <div>© 2026 <strong>SafeSphere</strong>. Read. Learn. Stay Safe.</div>
+        <div style="display: flex; gap: 1.5rem;">
+          <a href="blogs.html" class="footer-link">Back to Blogs Directory</a>
+          <a href="emergency.html" class="footer-link">Emergency Help</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scroll To Top -->
+  <button class="scroll-top-btn" id="scrollTopBtn" aria-label="Scroll to top">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+      <polyline points="18 15 12 9 6 15"></polyline>
+    </svg>
+  </button>
+
+  <script src="data.js"></script>
+  <script src="script.js"></script>
+  <script src="auth.js"></script>
+  <script src="blogs.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const container = document.getElementById('articleReaderContainer');
+      const params = new URLSearchParams(window.location.search);
+      const articleId = params.get('id') || 'solo-travel-safety-guide';
+
+      if (!window.SafeSphereData || !window.SafeSphereData.blogs) return;
+      const blog = window.SafeSphereData.blogs.find(b => b.id === articleId) || window.SafeSphereData.blogs[0];
+
+      // Update page title
+      document.title = `${blog.title} | SafeSphere`;
+
+      const storedLikes = JSON.parse(localStorage.getItem('safesphere_likes') || '{}');
+      const storedBookmarks = JSON.parse(localStorage.getItem('safesphere_bookmarks') || '[]');
+      const storedComments = JSON.parse(localStorage.getItem('safesphere_comments') || '{}');
+
+      const isLiked = !!storedLikes[blog.id];
+      const isSaved = storedBookmarks.includes(blog.id);
+      const currentLikes = isLiked ? blog.likes + 1 : blog.likes;
+      const allComments = [...(blog.comments || []), ...(storedComments[blog.id] || [])];
+
+      container.innerHTML = `
+        <div style="margin-bottom: 2rem;">
+          <div class="flex-between" style="margin-bottom: 1rem;">
+            <a href="blogs.html" class="btn btn-secondary btn-sm">← Back to All Articles</a>
+            <div style="display: flex; gap: 0.5rem;">
+              <button class="btn btn-secondary btn-sm" id="pageSpeechBtn">🔊 Read Aloud</button>
+              <button class="like-btn ${isLiked ? 'liked' : ''}" id="pageLikeBtn">
+                <span>${isLiked ? '❤️' : '🤍'}</span>
+                <span id="pageLikeCount">${currentLikes}</span>
+              </button>
+              <button class="bookmark-btn ${isSaved ? 'saved' : ''}" id="pageBookmarkBtn">
+                <span>${isSaved ? '🔖 Saved' : '📑 Bookmark'}</span>
+              </button>
+            </div>
+          </div>
+
+          <span class="badge badge-primary" style="margin-bottom: 0.75rem;">${blog.category}</span>
+          <h1 style="font-size: 2.5rem; margin-bottom: 1rem; line-height: 1.2;">${blog.title}</h1>
+
+          <div style="display: flex; align-items: center; gap: 1rem; color: var(--text-muted); font-size: 0.95rem; margin-bottom: 1.5rem;">
+            <span>By <strong>${blog.author.name}</strong> (${blog.author.role})</span>
+            <span>•</span>
+            <span>📅 ${blog.date}</span>
+            <span>•</span>
+            <span>⏱️ ${blog.readTime}</span>
+          </div>
+
+          <div style="border-radius: var(--radius-lg); overflow: hidden; margin-bottom: 2.5rem; max-height: 440px;">
+            <img src="${blog.image}" alt="${blog.title}" style="width: 100%; height: 100%; object-fit: cover;" />
+          </div>
+
+          <div class="modal-body" style="padding: 0;">
+            ${blog.content}
+          </div>
+
+          <!-- Tags -->
+          <div style="display: flex; gap: 0.5rem; flex-wrap: wrap; margin-top: 2.5rem; padding-top: 1.5rem; border-top: 1px solid var(--border-color);">
+            ${blog.tags.map(t => `<span class="badge" style="background: var(--bg-subtle); color: var(--text-secondary);">#${t}</span>`).join('')}
+          </div>
+
+          <!-- Comments Section -->
+          <section class="comments-section">
+            <h3>Discussion & Community Insights (${allComments.length})</h3>
+            
+            <form class="comment-form" id="pageCommentForm">
+              <input type="text" id="pageCommentAuthor" class="comment-input" placeholder="Your Name" required />
+              <textarea id="pageCommentText" class="comment-textarea" rows="3" placeholder="Share your experience or ask a safety question..." required></textarea>
+              <div style="text-align: right;">
+                <button type="submit" class="btn btn-primary btn-sm">Post Comment</button>
+              </div>
+            </form>
+
+            <div class="comments-list" id="pageCommentsList">
+              ${allComments.length === 0 ? '<p style="color: var(--text-muted);">No comments yet.</p>' : allComments.map(c => `
+                <div class="comment-bubble">
+                  <div class="comment-header">
+                    <span class="comment-user">👤 ${c.user}</span>
+                    <span style="color: var(--text-muted); font-size: 0.75rem;">${c.date}</span>
+                  </div>
+                  <p style="margin: 0; color: var(--text-secondary);">${c.text}</p>
+                </div>
+              `).join('')}
+            </div>
+          </section>
+        </div>
+      `;
+
+      // Speech
+      document.getElementById('pageSpeechBtn').addEventListener('click', () => {
+        const temp = document.createElement('div');
+        temp.innerHTML = blog.content;
+        window.SafeSphereUtils.speakText(`${blog.title}. ${temp.textContent}`);
+      });
+
+      // Like
+      const likeBtn = document.getElementById('pageLikeBtn');
+      likeBtn.addEventListener('click', () => {
+        if (storedLikes[blog.id]) {
+          delete storedLikes[blog.id];
+          likeBtn.classList.remove('liked');
+          likeBtn.querySelector('span:first-child').textContent = '🤍';
+          document.getElementById('pageLikeCount').textContent = blog.likes;
+          window.SafeSphereUtils.showToast('Unliked article', 'info');
+        } else {
+          storedLikes[blog.id] = true;
+          likeBtn.classList.add('liked');
+          likeBtn.querySelector('span:first-child').textContent = '❤️';
+          document.getElementById('pageLikeCount').textContent = blog.likes + 1;
+          window.SafeSphereUtils.showToast('❤️ Added to liked articles!', 'success');
+        }
+        localStorage.setItem('safesphere_likes', JSON.stringify(storedLikes));
+      });
+
+      // Bookmark
+      const bookmarkBtn = document.getElementById('pageBookmarkBtn');
+      bookmarkBtn.addEventListener('click', () => {
+        let bookmarks = JSON.parse(localStorage.getItem('safesphere_bookmarks') || '[]');
+        if (bookmarks.includes(blog.id)) {
+          bookmarks = bookmarks.filter(id => id !== blog.id);
+          bookmarkBtn.classList.remove('saved');
+          bookmarkBtn.innerHTML = '<span>📑 Bookmark</span>';
+          window.SafeSphereUtils.showToast('Removed from reading list', 'info');
+        } else {
+          bookmarks.push(blog.id);
+          bookmarkBtn.classList.add('saved');
+          bookmarkBtn.innerHTML = '<span>🔖 Saved</span>';
+          window.SafeSphereUtils.showToast('🔖 Saved to reading list!', 'success');
+        }
+        localStorage.setItem('safesphere_bookmarks', JSON.stringify(bookmarks));
+      });
+
+      // Comment
+      document.getElementById('pageCommentForm').addEventListener('submit', (e) => {
+        e.preventDefault();
+        const author = document.getElementById('pageCommentAuthor').value.trim();
+        const text = document.getElementById('pageCommentText').value.trim();
+        if (!author || !text) return;
+
+        const newC = { id: Date.now(), user: author, text: text, date: 'Just now' };
+        if (!storedComments[blog.id]) storedComments[blog.id] = [];
+        storedComments[blog.id].unshift(newC);
+        localStorage.setItem('safesphere_comments', JSON.stringify(storedComments));
+
+        allComments.unshift(newC);
+        document.getElementById('pageCommentsList').innerHTML = allComments.map(c => `
+          <div class="comment-bubble">
+            <div class="comment-header">
+              <span class="comment-user">👤 ${c.user}</span>
+              <span style="color: var(--text-muted); font-size: 0.75rem;">${c.date}</span>
+            </div>
+            <p style="margin: 0; color: var(--text-secondary);">${c.text}</p>
+          </div>
+        `).join('');
+
+        document.getElementById('pageCommentForm').reset();
+        window.SafeSphereUtils.showToast('💬 Comment posted!', 'success');
+      });
+    });
+  </script>
+</body>
+</html>
